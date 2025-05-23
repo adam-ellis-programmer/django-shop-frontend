@@ -24,13 +24,13 @@ const cartService = {
   // Get the current customer's cart
   getCart: async () => {
     try {
-      console.log('=== DEBUG GET CART ===')
-      console.log('All cookies:', document.cookie)
-      console.log('authAxios config:', authAxios.defaults)
-      console.log('Making request to:', `${API_URL}/cart/`)
+      // console.log('=== DEBUG GET CART ===')
+      // console.log('All cookies:', document.cookie)
+      // console.log('authAxios config:', authAxios.defaults)
+      // console.log('Making request to:', `${API_URL}/cart/`)
 
       const response = await authAxios.get('/cart/')
-      console.log('Cart response:', response.data)
+      // console.log('Cart response:', response.data)
       return response.data
     } catch (error) {
       console.error('Error getting cart:', error)

@@ -135,10 +135,11 @@ export const fetchCustomerProducts = createAsyncThunk(
 export const fetchPublicProducts = createAsyncThunk(
   'products/fetchPublic',
   async (category = null, { rejectWithValue }) => {
+    console.log('ran')
     try {
       // Simplified to just pass category
       const response = await productService.getPublicProducts(category)
-
+    
       // Return the response data directly
       return response
     } catch (error) {

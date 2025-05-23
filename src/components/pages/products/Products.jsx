@@ -39,6 +39,8 @@ const Products = () => {
     dispatch(fetchPublicProducts())
   }, [dispatch])
 
+  console.log(reduxProducts)
+
   return (
     <div className='align-element'>
       <div className='m-h grid sm:grid-cols-1 lg:grid-cols-[250px_1fr]'>
@@ -77,7 +79,7 @@ const Products = () => {
       </div>
 
       {/* Keep pagination component for now */}
-      {/* <Paginate /> */}
+      <Paginate />
     </div>
   )
 }

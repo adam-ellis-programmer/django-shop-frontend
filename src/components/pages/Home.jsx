@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import SwiperSlider from '../images/SwiperSlider'
 import FeaturedProduct from '../images/FeaturedProduct'
-import products from '../../data/products'
 import ProductCard from '../images/ProductCard'
 import Hero from '../images/Hero'
 import Header from '../Headings/Header'
@@ -75,7 +74,7 @@ const Home = () => {
             {reduxProducts &&
               reduxProducts
                 ?.filter((item) => item.featured === true)
-                .slice(2, 4)
+                .slice(0, 2)
                 .map((product) => {
                   return <FeaturedProduct key={product.id} prod={product} />
                 })}
@@ -90,7 +89,7 @@ const Home = () => {
             {reduxProducts && reduxProducts.length > 0 ? (
               [...reduxProducts]
                 .reverse()
-                .slice(8, 14)
+                .slice(0,3)
                 .map((product) => {
                   return <ProductCard key={product.id} prod={product} />
                 })
