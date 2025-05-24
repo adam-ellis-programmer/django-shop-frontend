@@ -130,16 +130,22 @@ export const fetchCustomerProducts = createAsyncThunk(
 )
 
 // ==================================================================
-// fetch products public
+// fetch products public with pagination
 // ==================================================================
 export const fetchPublicProducts = createAsyncThunk(
   'products/fetchPublic',
-  async (category = null, { rejectWithValue }) => {
-    console.log('ran')
+  async (
+    { page = 1, pageSize = 9, category = null } = {},
+    { rejectWithValue }
+  ) => {
     try {
-      // Simplified to just pass category
-      const response = await productService.getPublicProducts(category)
-    
+      // Pass pagination parameters
+      const response = await productService.getPublicProducts({
+        page,
+        pageSize,
+        category,
+      })
+
       // Return the response data directly
       return response
     } catch (error) {
@@ -147,6 +153,7 @@ export const fetchPublicProducts = createAsyncThunk(
     }
   }
 )
+
 // ==================================================================
 // fetch product by id public
 // ==================================================================
@@ -195,8 +202,8 @@ const initialState = {
   currentProduct: null,
   loading: false,
   error: null,
-  // Removed pagination from initial state since we're not using it now
   searchResults: [],
+  pagination: null, // Add pagination info
   searchQuery: '',
   addProductSuccess: false,
   updateSuccess: false,
@@ -363,7 +370,7 @@ const productsSlice = createSlice({
     })
 
     // ==============================
-    // fetch public prodcut
+    // fetch public products (ONLY ONE - REMOVED DUPLICATE)
     // ==============================
     builder.addCase(fetchPublicProducts.pending, (state) => {
       state.loading = true
@@ -371,17 +378,12 @@ const productsSlice = createSlice({
     })
     builder.addCase(fetchPublicProducts.fulfilled, (state, action) => {
       state.loading = false
-
-      // Directly assign products from the response
-      // Adjust this based on your actual API response structure
       state.publicProducts = action.payload.products || []
-
-      // Clear any previous errors
-      state.error = null
+      state.pagination = action.payload.pagination || null // Store pagination info
     })
     builder.addCase(fetchPublicProducts.rejected, (state, action) => {
       state.loading = false
-      state.error = action.payload || 'Failed to fetch products'
+      state.error = action.payload
     })
 
     // ==============================
@@ -424,6 +426,8 @@ const productsSlice = createSlice({
       state.loading = false
       state.error = action.payload || 'Search failed'
     })
+
+    // REMOVED THE DUPLICATE fetchPublicProducts reducers that were at the bottom
   },
 })
 
@@ -456,35 +460,12 @@ export const selectDeleteSuccess = (state) =>
 // search
 export const selectSearchResults = (state) => state.product.searchResults || []
 export const selectSearchQuery = (state) => state.product.searchQuery || ''
+// FIXED: Changed from state.products to state.product (to match your slice name)
+export const selectPagination = (state) => state.product.pagination
 // ==================================================================
 // Add new selector
 // ==================================================================
 export const selectAddProductSuccess = (state) =>
   state.product.addProductSuccess || false
-
-// Memoized selectors
-// const selectProductState = (state) => state.product
-
-// export const selectPublicProducts = createSelector( [selectProductState],
-//   (productState) => productState?.publicProducts || []
-// )
-
-// export const selectProductsLoading = createSelector(
-//   [selectProductState],
-//   (productState) => productState?.loading || false
-// )
-
-// export const selectProductsError = createSelector( [selectProductState],(productState) => productState?.error || null
-// )
-
-// export const selectCurrentProduct = createSelector(
-//   [selectProductState],
-//   (productState) => productState?.currentProduct || null
-// )
-
-// export const selectCustomerProducts = createSelector(
-//   [selectProductState],
-//   (productState) => productState?.customerProducts || []
-// )
 
 export default productsSlice.reducer

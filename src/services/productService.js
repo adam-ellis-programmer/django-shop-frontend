@@ -65,16 +65,37 @@ authAxios.interceptors.request.use(
 
 const productService = {
   // ==================================================================
-  // public get products
+  // public get products with pagination
   // ==================================================================
-  getPublicProducts: async (category = null) => {
+  getPublicProducts: async ({
+    page = 1,
+    pageSize = 9,
+    category = null,
+  } = {}) => {
     try {
       let url = '/products/'
 
-      // Only add category filter if provided
+      // Build query parameters
+      const params = new URLSearchParams()
+      // =================================
+      // ------- PARAMS AND {}
+      // =================================
+
+      // Add pagination parameters
+      params.append('page', page.toString())
+      params.append('pageSize', pageSize.toString())
+
+      // Add category filter if provided
       if (category) {
-        url += `?category=${encodeURIComponent(category)}`
+        params.append('category', category)
       }
+
+      // Construct final URL
+      if (params.toString()) {
+        url += `?${params.toString()}`
+      }
+
+      console.log('Fetching products from:', url) // Debug log
 
       const response = await publicAxios.get(url)
       return response.data

@@ -1,45 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import SectionTitle from '../../layout/SectionTitle'
-
 import ProductCard from '../../images/ProductCard'
 import PriceSlider from '../../filters/PriceSlider'
 import Paginate from '../../pagination/Paginate'
-import { getData } from '../../../testing/fetch' // ----- testing
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 
 import {
   fetchPublicProducts,
   selectPublicProducts,
   selectProductsLoading,
   selectProductsError,
+  selectPagination, // Add this selector
 } from '../../../features/products/productsSlice'
 import CategoryFilter from '../../filters/CategoryFilter'
 import MainSpinner from '../../spinners/MainSpinner'
 
 const Products = () => {
-  // const displayProducts = reduxProducts.length > 0 ? reduxProducts : products
-  // Scroll to top on mount
-  useEffect(() => {
-    scrollTo({
-      top: 0,
-    })
-  }, [])
-
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
 
-  // Get data from Redux -- instead of usiing state.products here we do this in the slice
+  // Get current page from URL params
+  const currentPage = parseInt(searchParams.get('page')) || 1
+  const pageSize = 9 // Set your desired page size
+
+  // Get data from Redux
   const reduxProducts = useSelector(selectPublicProducts) || []
   const loading = useSelector(selectProductsLoading)
   const error = useSelector(selectProductsError)
+  const pagination = useSelector(selectPagination) // Get pagination info
+  console.log('pagination====>', pagination)
 
-  // Fetch products
+  // Fetch products when page changes
   useEffect(() => {
-    // Dispatch Redux action to fetch products
-    dispatch(fetchPublicProducts())
-  }, [dispatch])
+    scrollTo({ top: 0 })
+    // Pass current page and page size to the fetch action
+    dispatch(
+      fetchPublicProducts({
+        page: currentPage,
+        pageSize: pageSize,
+      })
+    )
+  }, [dispatch, currentPage, pageSize])
 
-  console.log(reduxProducts)
+  // Handle page change
+  const handlePageChange = (newPage) => {
+    // Update URL with new page
+    navigate(`/products?page=${newPage}`)
+  }
 
   return (
     <div className='align-element'>
@@ -70,7 +79,7 @@ const Products = () => {
                 {reduxProducts &&
                   reduxProducts.length > 0 &&
                   reduxProducts.map((i, index) => (
-                    <ProductCard key={index} prod={i} />
+                    <ProductCard key={i.id || index} prod={i} />
                   ))}
               </div>
             </>
@@ -78,8 +87,14 @@ const Products = () => {
         </section>
       </div>
 
-      {/* Keep pagination component for now */}
-      <Paginate />
+      {/* Working pagination component */}
+      {pagination && (
+        <Paginate
+          currentPage={currentPage}
+          totalPages={pagination.totalPages}
+          onPageChange={handlePageChange}
+        />
+      )}
     </div>
   )
 }
