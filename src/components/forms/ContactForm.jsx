@@ -49,7 +49,7 @@ const ContactForm = () => {
 
           <textarea
             type='text'
-            placeholder='Secondary'
+            placeholder='Enter Message'
             className='textarea textarea-secondary w-full min-h-[300px]'
           ></textarea>
 
