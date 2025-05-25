@@ -14,9 +14,9 @@ const Header = () => {
   const AdminLink = () => {
     // This will handle both development and production environments
     const adminUrl =
-      process.env.NODE_ENV === 'production'
-        ? '/admin/' // In production, they'll be on the same domain
-        : 'http://localhost:8000/admin/' // In development, point to Django server
+      import.meta.env.VITE_NODE_ENV === 'production'
+        ? '/admin/'
+        : 'http://localhost:8000/admin/'
 
     return (
       <a href={adminUrl} target='_blank' rel='noopener noreferrer'>
