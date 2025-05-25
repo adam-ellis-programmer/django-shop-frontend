@@ -2,15 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import placeholder from '../../../place holders/place-holder.jpg'
 
+const getBg = (i) => {
+  if (i % 2 === 0) {
+    return 'bg-gray-100'
+  } else {
+    return 'bg-stone-200'
+  }
+}
 const UserPrductItem = ({ product, i }) => {
   // console.log(i)
+
   return (
     <div>
       {/* make respnsive changes here  */}
+      {/* prettier-ignore */}
       <div
-        className={`p-10 mb-10 md:mb-0  md:p-0 rounded-2xl grid md:grid-cols-5 items-center md:hover2  ${
-          i % 2 === 0 && 'bg-gray-100'
-        } `}
+        className={` p-10 mb-10 md:mb-1  md:p-3  grid md:grid-cols-5 items-center hover2  ${getBg(i)} `}
       >
         {/* image */}
         <div className='flex md:justify-center'>
