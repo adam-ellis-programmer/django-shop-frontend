@@ -4,9 +4,17 @@ import { Link } from 'react-router-dom'
 
 const getBg = (i) => {
   if (i % 2 === 0) {
-    return 'bg-gray-100'
+    return 'bg-gray-100 prod-list-dark'
   } else {
-    return 'bg-stone-200'
+    return 'bg-stone-200 prod-list-dark-2'
+  }
+}
+
+const getButtonClr = (i) => {
+  if (i % 2 === 0) {
+    return 'btn btn-primary md:btn-soft w-full '
+  } else {
+    return 'btn btn-primary md:btn-soft  w-full '
   }
 }
 const UserPrductItem = ({ product, i }) => {
@@ -37,7 +45,7 @@ const UserPrductItem = ({ product, i }) => {
           {/* takes us to a edit page  */}
           <span className='show-below-768 font-[700]'>buttons:</span>
           <Link to={`/edit-my-listing/${product.id} `} className=''>
-            <button className='btn md:btn-soft btn-primary w-full '>
+            <button className={getButtonClr(i)}>
               Edit
             </button>
           </Link>

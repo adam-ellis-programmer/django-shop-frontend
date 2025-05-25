@@ -116,7 +116,6 @@ body {
   /* border: .1px solid; */
 }
 
-.dark .hero-dark,
 .dark .category-card-dark {
   box-shadow: 1px 2px 20px #ffffff5f;
 }
@@ -133,4 +132,55 @@ body {
 .dark .dark-btn-1 {
   border: 1px solid;
   color: #fff;
+}
+
+.dark .hero-dark {
+  box-shadow: 1px 2px 15px #cccccc74;
+}
+
+.dark .dark-cat-btn {
+  background-color: #44649ff7;
+  color: #fff;
+  border: none;
+}
+
+.dark .prod-list-dark {
+  background-color: #a4a5a6;
+}
+.dark .prod-list-dark-2 {
+  background-color: #384c61;
+}
+
+.dark .list-btn {
+  background-color: #0000;
+}
+
+.dark input[type='text'] {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
+}
+
+.dark input[type='select'] {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
+}
+
+.dark select {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
+}
+
+.dark input[type='file'] {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
+}
+
+.dark textarea {
+  background-color: #2d3748;
+  color: white;
+  border: 1px solid #4a5568;
 }

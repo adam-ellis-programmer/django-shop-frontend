@@ -11,11 +11,11 @@ const CategoryFilter = ({ products }) => {
   }
   return (
     <div>
-      <ul>
+      <ul className=' mr-10'>
         {categories.map((i) => {
           return (
             <li key={i} onClick={() => handleClick(i)} className='mb-3'>
-              <button className=' btn btn-soft btn-secondary'>{i}</button>
+              <button className=' btn btn-soft  dark-cat-btn w-full'>{i}</button>
             </li>
           )
         })}

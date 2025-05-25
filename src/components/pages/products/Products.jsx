@@ -51,7 +51,7 @@ const Products = () => {
   }
 
   return (
-    <div className='align-element'>
+    <div className='align-element mb-5'>
       <div className='m-h grid sm:grid-cols-1 lg:grid-cols-[250px_1fr]'>
         {/* filters */}
         <section className='hidden lg:block'>
