@@ -154,7 +154,8 @@ body {
 .dark .list-btn {
   background-color: #0000;
 }
-
+.dark input[type='password'],
+.dark input[type='email'],
 .dark input[type='text'] {
   background-color: #2d3748;
   color: white;
@@ -183,4 +184,16 @@ body {
   background-color: #2d3748;
   color: white;
   border: 1px solid #4a5568;
+}
+
+.dark .order-item {
+  background-color: #465059;
+  color: #fff;
+  border: none;
+}
+
+.dark .order-item2 {
+  background-color: #586b73;
+  color: #fff;
+  border: none;
 }

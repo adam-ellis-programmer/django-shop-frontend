@@ -83,6 +83,14 @@ const MyOrdersPage = () => {
     )
   }
 
+  const getBg = (i) => {
+    if (i % 2 === 0) {
+      return 'bg-gray-100 order-item'
+    } else {
+      return 'order-item2'
+    }
+  }
+
   return (
     <div className='align-element m-h'>
       <Header text={`My Orders`} styles={`text-center text-2xl my-10`} />
@@ -100,9 +108,9 @@ const MyOrdersPage = () => {
             return (
               <div
                 key={order.id}
-                className={`collapse bg-base-100 border border-base-300 ${
-                  i % 2 === 0 ? 'bg-gray-100' : ''
-                }`}
+                className={`collapse bg-base-100 border border-base-300 ${getBg(
+                  i
+                )}`}
               >
                 <input
                   type='radio'
@@ -133,7 +141,11 @@ const MyOrdersPage = () => {
                   </div>
 
                   {/* Order Summary */}
-                  <div className='grid grid-cols-4 p-3 font-medium bg-base-200'>
+                  <div
+                    className={`grid grid-cols-4 p-3 font-medium bg-base-200 ${getBg(
+                      i
+                    )}`}
+                  >
                     <div>Items</div>
                     <div>Order Number</div>
                     <div>Order Date</div>
@@ -152,7 +164,9 @@ const MyOrdersPage = () => {
                     {order.items.map((item) => (
                       <div
                         key={item.id}
-                        className='flex gap-4 items-center p-2 border-b border-dashed'
+                        className={`flex gap-4 items-center p-2 border-b border-dashed ${getBg(
+                          i
+                        )}`}
                       >
                         <div className='w-16 h-16 flex-shrink-0'>
                           {item.image_url ? (
@@ -172,8 +186,10 @@ const MyOrdersPage = () => {
                         <div className='flex-1'>
                           <div className='font-medium'>{item.product_name}</div>
                           <div className='text-sm text-gray-600'>
-                            {item.quantity} × £
-                            {parseFloat(item.product_price).toFixed(2)}
+                            <span className={`${getBg(i)}`}>
+                              {item.quantity} × £{' '}
+                              {parseFloat(item.product_price).toFixed(2)}
+                            </span>
                           </div>
                         </div>
                         <div className='font-medium'>
