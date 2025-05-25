@@ -49,7 +49,7 @@ const DarkModeButton = () => {
   }
 
   return (
-    <div className='mr-5'>
+    <div className='md:mr-5'>
       <button
         onClick={handleToggle}
         className='p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors'
