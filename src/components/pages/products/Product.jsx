@@ -52,7 +52,7 @@ const Product = () => {
   if (productLoading) return <ProductSkeleton />
 
   return (
-    <div >
+    <div className=' mb-10'>
       {addedToCartSuccess && (
         <GenericAlert
           text={'success! item added to cart '}
