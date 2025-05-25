@@ -16,6 +16,7 @@ import {
 
 import ApiTest from './products/ApiTest'
 import MainSpinner from '../spinners/MainSpinner'
+import { topCategories } from '../../data/dataArrays'
 // min-h-[calc(100vh-140px)] m-h
 
 // add the list data to a different table
@@ -81,10 +82,7 @@ const Home = () => {
                 })}
           </section>
 
-          <Header
-            text={`top categories`}
-            styles={` mt-8 text-center text-3xl`}
-          />
+          <Header text={`worth a look`} styles={` mt-8 text-center text-3xl`} />
 
           <section className='grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8 mb-5 '>
             {reduxProducts && reduxProducts.length > 0 ? (
@@ -100,6 +98,33 @@ const Home = () => {
           </section>
         </div>
       )}
+      <section className='mb-10'>
+        <Header
+          text={`top categories`}
+          styles={` mt-8 text-center text-3xl mb-8`}
+        />
+
+        <div className='grid md:grid-cols-3 gap-4'>
+          {topCategories.map((item, i) => {
+            return (
+              <div className=' h-[300px] overflow-hidde shadow-2xl relative hover'>
+                <img
+                  className='h-[300px] w-full object-cover rounded-2xl'
+                  src={item.img}
+                  alt=''
+                />
+                <div className='absolute top-[50%] w-full flex justify-center'>
+                  <p>
+                    <span className='text-2xl bg-rose-500 p-2 text-white lowercase rounded'>
+                      {item.cat}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
     </div>
   )
 }
