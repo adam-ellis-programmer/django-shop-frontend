@@ -56,6 +56,13 @@ const MyCommentsPage = () => {
     )
   }
 
+  const getBg = (i) => {
+    if (i % 2 === 0) {
+      return 'bg-gray-100 order-item'
+    } else {
+      return 'order-item2'
+    }
+  }
   return (
     <div className='align-element m-h'>
       <section className='max-w-[800px] m-auto'>
@@ -70,9 +77,7 @@ const MyCommentsPage = () => {
           userComments.map((comment, i) => (
             <div
               key={comment.id}
-              className={`hover2 collapse collapse-arrow ${
-                i % 2 === 0 ? 'bg-gray-100' : ''
-              }`}
+              className={`hover2 collapse collapse-arrow ${getBg(i)}`}
             >
               <input
                 type='radio'
