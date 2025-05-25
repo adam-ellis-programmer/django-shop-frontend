@@ -8,37 +8,52 @@ const UserPrductItem = ({ product, i }) => {
     <div>
       {/* make respnsive changes here  */}
       <div
-        className={` rounded-2xl grid lg:grid-cols-5 -b-half items-center hover2  ${
+        className={`p-10 mb-10 md:mb-0  md:p-0 rounded-2xl grid md:grid-cols-5 items-center md:hover2  ${
           i % 2 === 0 && 'bg-gray-100'
         } `}
       >
-        <div className='flex justify-center '>
+        {/* image */}
+        <div className='flex md:justify-center'>
           <img
             src={product?.images[0]?.image_url}
             alt={product.name}
             className='h-[80px] w-[80px] object-cover rounded-[35%]'
           />
         </div>
-        <div className='text-center my-4 md:my-0 '>{product.name}</div>
-        <div className='flex justify-center gap-2 '>
+        {/* name */}
+        <div className='md:text-center my-4 md:my-0 flex flex-col'>
+          <span className='show-below-768 font-[700]'>name:</span>
+          {product.name}
+        </div>
+        {/* button controlls */}
+        <div className='flex md:justify-center gap-2 flex-col md:flex-row'>
           {/* takes us to a edit page  */}
-          <Link to={`/edit-my-listing/${product.id}`}>
-            <button className='btn btn-soft btn-primary'>Edit</button>
+          <span className='show-below-768 font-[700]'>buttons:</span>
+          <Link to={`/edit-my-listing/${product.id} `} className=''>
+            <button className='btn md:btn-soft btn-primary w-full '>
+              Edit
+            </button>
           </Link>
           {/* takes us to a delete page  */}
           <Link to={`/delete-product/${product.id}`}>
-            <button className='btn btn-soft btn-secondary'>Delete</button>
+            <button className='btn md:btn-soft btn-secondary w-full'>
+              Delete
+            </button>
           </Link>
         </div>
-        <div className='text-center my-5 md:my-0 '>
+
+        <div className='md:text-center my-5 md:my-0'>
+          <span className='show-below-768 font-[700]'>Status:</span>
           {product.active ? (
             <div className='badge badge-secondary text-white'>Active</div>
           ) : (
             <div className='badge badge-info text-white'>Inactive</div>
           )}
         </div>
-        <div className=' text-center '>
-          <div className='badge badge-primary badge-lg'>2</div>
+        {/* items sold */}
+        <div className=' md:text-center '>
+          <span className='show-below-768 font-[700]'>Items Sold:</span>
+          <div className='badge badge-primary badge-lg'>3</div>
         </div>
       </div>
     </div>

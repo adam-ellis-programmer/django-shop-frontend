@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
       <a href={adminUrl} target='_blank' rel='noopener noreferrer'>
-        <span className=''> Admin</span>
+        <span className=''>Admin</span>
       </a>
     )
   }
@@ -53,7 +53,7 @@ const Header = () => {
             <span className='show-above-500'>welcome shopper</span>
           </div>
         )}
-        <ul className='  flex justify-end'>{<HeaderLinks />}</ul>
+        <ul className='flex justify-end'>{<HeaderLinks />}</ul>
       </div>
     </div>
   )
