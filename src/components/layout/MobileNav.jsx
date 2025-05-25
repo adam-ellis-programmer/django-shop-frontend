@@ -15,7 +15,7 @@ const MobileNav = ({ setIsNavOpen, isNavOpen }) => {
       } md:hidden px-5`}
     >
       <div className='h-[80px] flex items-center justify-between'>
-        {/* <CartLink setIsNavOpen={setIsNavOpen} mobile /> */}
+        <CartLink setIsNavOpen={setIsNavOpen} mobile />
         <img className='w-40' src={logo} alt='' />
         <button className='sm:hidden'>
           <i
