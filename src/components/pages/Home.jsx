@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import SwiperSlider from '../images/SwiperSlider'
 import FeaturedProduct from '../images/FeaturedProduct'
+import products from '../../data/products'
 import ProductCard from '../images/ProductCard'
 import Hero from '../images/Hero'
 import Header from '../Headings/Header'
@@ -60,7 +61,7 @@ const Home = () => {
       <section className='mb-8'>
         <Hero />
       </section>
-      <Header text={`our top products`} styles={`mb-8 text-center text-3xl`} />
+      <Header text={`trending products`} styles={`mb-8 text-center text-3xl`} />
       <SwiperSlider />
       {loadingProducts ? (
         <MainSpinner extraStyles={`my-20 `} />
@@ -85,11 +86,11 @@ const Home = () => {
             styles={` mt-8 text-center text-3xl`}
           />
 
-          <section className='grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8'>
+          <section className='grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mt-8 mb-5 '>
             {reduxProducts && reduxProducts.length > 0 ? (
               [...reduxProducts]
                 .reverse()
-                .slice(0,3)
+                .slice(0, 3)
                 .map((product) => {
                   return <ProductCard key={product.id} prod={product} />
                 })

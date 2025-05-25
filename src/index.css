@@ -5,6 +5,21 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+/* ================== color controlls ======================== */
+:root {
+  --bg-primary: white;
+  --text-primary: black;
+  --bg-card: #f7fafc;
+}
+
+.dark {
+  --bg-primary: #384c61;
+  --text-primary: white;
+  --bg-card: #2d3748;
+}
+
+/* ================== color controlls ======================== */
 @layer components {
   .align-element {
     @apply mx-auto w-5/6;
@@ -89,4 +104,17 @@ body {
 .new-product-form-control {
   margin: 1rem 0;
   /* border: 1px solid; */
+}
+
+.dark .dark-border {
+  border: 0.1px solid;
+}
+.card,
+.search-input {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  /* border: .1px solid; */
+}
+.dark .category-card-dark {
+  box-shadow: 1px 2px 20px #ffffff5f;
 }

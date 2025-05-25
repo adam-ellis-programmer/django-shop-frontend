@@ -53,10 +53,10 @@ const MobileSearch = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='md:hidden px-8 mt-3'>
-        <label className='input w-full'>
+      <div className='md:hidden px-8 mt-3 search-input'>
+        <label className='input w-full search-input dark-border'>
           <svg
-            className='h-[1em] opacity-50'
+            className='h-[1em] opacity-50 search-input'
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
           >
@@ -74,7 +74,7 @@ const MobileSearch = () => {
           <input
             onChange={handleSearch}
             type='search'
-            className='grow'
+            className='grow search-input'
             placeholder='Search'
             // name='search'
           />

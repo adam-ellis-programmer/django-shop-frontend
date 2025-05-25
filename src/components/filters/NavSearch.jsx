@@ -78,11 +78,11 @@ const NavSearch = () => {
   }, [])
 
   return (
-    <div className='flex-1 hidden lg:block'>
+    <div className='flex-1 hidden lg:block dark-border '>
       <form onSubmit={handleSubmit}>
-        <label className='input border w-full'>
+        <label className='input border w-full search-input'>
           <svg
-            className='h-[1em] opacity-50'
+            className='h-[1em] opacity-50 '
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
           >
@@ -102,11 +102,11 @@ const NavSearch = () => {
             ref={searchInputRef}
             onChange={handleDebounceSearch}
             type='search'
-            className='grow'
+            className='grow search-input'
             placeholder='Search'
           />
-          <kbd className='kbd kbd-sm'>⌘</kbd>
-          <kbd className='kbd kbd-sm'>K</kbd>
+          <kbd className='kbd kbd-sm search-input'>⌘</kbd>
+          <kbd className='kbd kbd-sm search-input'>K</kbd>
         </label>
       </form>
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 const FeaturedProduct = ({ prod }) => {
   return (
-    <Link to={`/single-product/${prod.id}`} className=''>
+    <Link to={`/single-product/${prod.id}`} className='category-card-dark'>
       <div className='card bg-base-100 shadow-sm md:h-auto lg:card-side lg:h-[200px] w-full relative'>
         <figure>
           <img

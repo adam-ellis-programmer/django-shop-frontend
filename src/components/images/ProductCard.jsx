@@ -8,7 +8,7 @@ const ProductCard = ({ prod }) => {
   return (
     <Link
       key={prod?.id}
-      className='relative'
+      className='relative category-card-dark'
       to={`/single-product/${prod?.id}`}
     >
       <div className='card bg-base-100 w-full shadow-sm min-h-[530px] z-1'>
@@ -29,8 +29,8 @@ const ProductCard = ({ prod }) => {
           <p>{prod?.description}</p>
           <div className='flex justify-end  items-center'>
             {/*  controll buttons */}
-            {/* <AddToCartButton front /> */}
-            {/* <BookmarkButton product={prod} /> */}
+            <AddToCartButton front />
+            <BookmarkButton product={prod} />
           </div>
           <div className='card-actions justify-end'>
             {prod?.tags
