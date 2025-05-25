@@ -50,7 +50,7 @@ const Header = () => {
         ) : (
           <div className=' flex justify-end '>
             {/* login / logout / sign in / up button logic */}
-            <span>welcome shopper</span>
+            <span className='show-above-500'>welcome shopper</span>
           </div>
         )}
         <ul className='  flex justify-end'>{<HeaderLinks />}</ul>
