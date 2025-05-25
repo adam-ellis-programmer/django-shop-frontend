@@ -19,6 +19,13 @@
       display: block;
     }
   }
+
+  .show-below-768 {
+    display: block;
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .dark {
