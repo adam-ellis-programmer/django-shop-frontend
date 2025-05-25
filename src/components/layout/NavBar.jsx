@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <nav className='h-[50px]'>
       <div className='align-element nav-container flex items-center justify-between h-full  '>
-        {/* <CartLink top={`50px`} left={'50px'} /> */}
+        <CartLink top={`50px`} left={'50px'} />
         <Link className='w-[200px] h-full  grid place-items-center'>
           <img className='h-50px mr-10 ' src={test} alt='' />
         </Link>
