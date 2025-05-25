@@ -52,7 +52,7 @@ const Product = () => {
   if (productLoading) return <ProductSkeleton />
 
   return (
-    <div>
+    <div >
       {addedToCartSuccess && (
         <GenericAlert
           text={'success! item added to cart '}
@@ -61,12 +61,12 @@ const Product = () => {
       )}
       <div className='flex flex-col md:flex-row justify-center   mt-5  max-w-[90%] mx-auto '>
         <Link to={`/products`}>
-          <button className='btn btn-outline btn-primary w-full md:w-[200px] mr-5 mb-1'>
+          <button className='btn btn-outline btn-primary w-full md:w-[200px] mr-5 mb-1 dark-btn-1'>
             Back Shopping
           </button>
         </Link>
         <Link to={`/cart`}>
-          <button className='btn btn-outline btn-primary w-full md:w-[200px]'>
+          <button className='btn btn-outline btn-primary w-full md:w-[200px] dark-btn-1'>
             To My Cart
           </button>
         </Link>
@@ -82,7 +82,7 @@ const Product = () => {
               <div className='badge badge-info  text-white'>Overview</div>
             </div>
             {/* main card */}
-            <div className='shadow-[1px_2px_15px_#ccc] p-5 md:p-10  rounded-[8px] hover  '>
+            <div className='shadow-[1px_2px_15px_#ccc] p-5 md:p-10  rounded-[8px] hover dark-box-shadow-1 '>
               <div className='flex justify-end '>
                 <div className='badge badge-success text-white text-[2rem] p-5'>
                   £{productData?.price}

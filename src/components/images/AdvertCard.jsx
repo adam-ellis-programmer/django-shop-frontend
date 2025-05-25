@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const AdvertCard = ({ item }) => {
   const { images, description, id, price } = item
   return (
-    <div className='card bg-base-100 w-fit shadow-sm mb-5'>
+    <div className='card bg-base-100 w-fit shadow-sm mb-5 dark-box-shadow-1'>
       <figure className='px-10 pt-10'>
         <img src={images[0].image_url} alt='Shoes' className='rounded-xl' />
       </figure>

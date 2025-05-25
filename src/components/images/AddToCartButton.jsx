@@ -9,7 +9,6 @@ import {
 } from '../../features/cart/cartSlice'
 
 const AddToCartButton = ({ front, product }) => {
-
   const dispatch = useDispatch()
   const loading = useSelector(selectCartLoading)
   const [isAdding, setIsAdding] = useState(false)
@@ -58,7 +57,8 @@ const AddToCartButton = ({ front, product }) => {
       <select
         onChange={(e) => handleSelect(e)}
         defaultValue='Pick a language'
-        className='select select-secondary mr-5'
+        // dark mode add ....
+        className='select select-secondary mr-5 select-dark'
       >
         <option disabled={true}>select amount</option>
         {itemsInStock.map((i) => {
