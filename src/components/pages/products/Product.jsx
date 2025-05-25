@@ -59,27 +59,27 @@ const Product = () => {
           styles={`alert alert-info max-w-[80%] m-auto text-white text-2xl mt-3`}
         />
       )}
-      <div className='flex justify-center mt-5  max-w-[90%] mx-auto '>
+      <div className='flex flex-col md:flex-row justify-center   mt-5  max-w-[90%] mx-auto '>
         <Link to={`/products`}>
-          <button className='btn btn-outline btn-primary w-[200px] mr-5'>
+          <button className='btn btn-outline btn-primary w-full md:w-[200px] mr-5 mb-1'>
             Back Shopping
           </button>
         </Link>
         <Link to={`/cart`}>
-          <button className='btn btn-outline btn-primary w-[200px]'>
+          <button className='btn btn-outline btn-primary w-full md:w-[200px]'>
             To My Cart
           </button>
         </Link>
       </div>
       <div className='max-w-[90%] mx-auto m-h  grid  lg:grid-cols-[1fr_1fr] gap-5 '>
-        <div className=' pr-5  h-fit bo '>
+        <div className=' md:pr-5  h-fit '>
           <div className='mb-30'>
             <Header
               text={`product details`}
               styles={`text-3xl mt-7 text-center`}
             />
             <div className='flex justify-center mb-8'>
-              <div className='badge badge-info border text-white'>Overview</div>
+              <div className='badge badge-info  text-white'>Overview</div>
             </div>
             {/* main card */}
             <div className='shadow-[1px_2px_15px_#ccc] p-5 md:p-10  rounded-[8px] hover  '>

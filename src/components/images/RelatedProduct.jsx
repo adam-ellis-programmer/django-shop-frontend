@@ -23,7 +23,7 @@ const RelatedProduct = ({ product }) => {
           // src={img}
           alt=''
           // className='h-[130px] md:w-[130px]  w-full object-cover'
-          className='md:h-[100px] rounded shadow-2xl'
+          className='md:h-[100px] rounded md:shadow-2xl'
         />
 
         <div className='ml-7'>
