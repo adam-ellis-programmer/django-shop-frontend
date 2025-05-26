@@ -45,7 +45,7 @@ const SignIn = () => {
   useEffect(() => {
     if (status === 'succeeded') {
       navigate('/')
-    }
+    } 
   }, [status, navigate])
 
   const handleSubmit = (e) => {
